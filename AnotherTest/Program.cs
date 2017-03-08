@@ -35,14 +35,18 @@ namespace AnotherTest
             Console.WriteLine("press any key to write to file");
             Console.ReadKey();
 
+            // currently assign the path to a new file 
             path = "names-sorted.txt";
             
+            // if file already exist 
             if(File.Exists(path))
             {
                 Console.WriteLine("File already exists");
                 Console.WriteLine("press any key to exit");
                 Console.ReadKey();
             }
+
+            // if file is not yet created 
             else 
             { 
                 WriteToFile(obj, "names-sorted.txt");
@@ -133,7 +137,6 @@ namespace AnotherTest
             {
                 sw.WriteLine(obj[index].Title); 
             }
-
             sw.Close();
         }
 
