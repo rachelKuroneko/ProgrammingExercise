@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 
 namespace AnotherTest
@@ -34,9 +35,21 @@ namespace AnotherTest
             Console.WriteLine("press any key to write to file");
             Console.ReadKey();
 
-            WriteToFile(obj, "names-sorted.txt");
+            path = "names-sorted.txt";
             
-            
+            if(File.Exists(path))
+            {
+                Console.WriteLine("File already exists");
+                Console.WriteLine("press any key to exit");
+                Console.ReadKey();
+            }
+            else 
+            { 
+                WriteToFile(obj, "names-sorted.txt");
+                Console.WriteLine("New file has been created.");
+                Console.WriteLine("press any key to exit");
+                Console.ReadKey();
+            }
         }
 
         public static void ReadFromFile(TestBook[] obj, string path)
@@ -116,10 +129,9 @@ namespace AnotherTest
         public static void WriteToFile(TestBook[] obj, string path)
         {
             StreamWriter sw = new StreamWriter(path, true);
-
             for (int index =0; index < obj.Length; index++)
             {
-                sw.WriteLine(obj[index].Title);
+                sw.WriteLine(obj[index].Title); 
             }
 
             sw.Close();
