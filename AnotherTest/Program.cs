@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 
-
 namespace AnotherTest
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             TestBook[] obj = new TestBook[5];
             string path = "names.txt";
@@ -140,5 +139,10 @@ namespace AnotherTest
             sw.Close();
         }
 
+
+        public static void ReadFromFile()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
